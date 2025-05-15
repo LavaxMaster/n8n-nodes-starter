@@ -15,7 +15,7 @@ export class UnderstandTechChat implements INodeType {
     version: 1,
     description: 'Chat with a model in Understand Tech',
     defaults: {
-      name: 'UnderstandTech Chat',
+      name: 'Understand Tech Chat',
       color: '#772953',
     },
     inputs: [NodeConnectionType.Main],
