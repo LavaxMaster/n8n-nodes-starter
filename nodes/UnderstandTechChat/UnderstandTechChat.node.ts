@@ -8,12 +8,12 @@ import { NodeConnectionType } from 'n8n-workflow';
 
 export class UnderstandTechChat implements INodeType {
   description: INodeTypeDescription = {
-    displayName: 'UnderstandTech Chat',
+    displayName: 'Understand Tech Chat',
     name: 'understandTechChat',
     icon: 'file:understandtech_logo.svg',
     group: ['transform'],
     version: 1,
-    description: 'Chat with a model in UnderstandTech',
+    description: 'Chat with a model in Understand Tech',
     defaults: {
       name: 'UnderstandTech Chat',
       color: '#772953',
@@ -34,7 +34,7 @@ export class UnderstandTechChat implements INodeType {
         default: 'https://developer.understand.tech',
         placeholder: 'https://developer.understand.tech',
         required: true,
-        description: 'The base URL of the UnderstandTech API',
+        description: 'The base URL of the Understand Tech API',
       },
       {
         displayName: 'Model Name',
