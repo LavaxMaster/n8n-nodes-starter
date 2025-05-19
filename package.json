@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-understandtechchat",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "…",
   "keywords": [
     "n8n-community-node-package"
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/<org>/n8n-nodes-understandtechchat.git"
+    "url": "https://github.com/LavaxMaster/n8n-nodes-starter.git"
   },
   "engines": {
     "node": ">=20.15"

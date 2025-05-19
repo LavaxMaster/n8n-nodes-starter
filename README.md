@@ -1,46 +1,120 @@
-![Banner image](https://user-images.githubusercontent.com/10284570/173569848-c624317f-42b1-45a6-ab09-f0ea3c247648.png)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/LavaxMaster/n8n-nodes-starter/master/nodes/UnderstandTechChat/understandtech_logo.svg" width="400"/>
+</p>
 
-# n8n-nodes-starter
+# n8n-nodes-understandtechchat
 
-This repo contains example nodes to help you get started building your own custom integrations for [n8n](n8n.io). It includes the node linter and other dependencies.
+Custom n8n integration nodes for **UnderstandTechChat**, enabling seamless interaction with your platform via authenticated API requests. Built using the [n8n community node starter template](https://github.com/n8n-io/n8n-nodes-starter).
 
-To make your custom node available to the community, you must create it as an npm package, and [submit it to the npm registry](https://docs.npmjs.com/packages-and-modules/contributing-packages-to-the-registry).
+## 🧠 What is UnderstandTechChat?
 
-## Prerequisites
+UnderstandTechChat is a powerful platform that connects users to their own customly trained model and allows you to chat with your model. This custom n8n node allows you to directly integrate and automate your UnderstandTechChat workflows within n8n.
 
-You need the following installed on your development machine:
+---
 
-* [git](https://git-scm.com/downloads)
-* Node.js and pnpm. Minimum version Node 20. You can find instructions on how to install both using nvm (Node Version Manager) for Linux, Mac, and WSL [here](https://github.com/nvm-sh/nvm). For Windows users, refer to Microsoft's guide to [Install NodeJS on Windows](https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows).
-* Install n8n with:
-  ```
-  npm install n8n -g
-  ```
-* Recommended: follow n8n's guide to [set up your development environment](https://docs.n8n.io/integrations/creating-nodes/build/node-development-environment/).
+## 🚀 Features
 
-## Using this starter
+- Send messages and interact with the UnderstandTechChat API
+- Use custom credentials and authentication
+- Easily plug into any n8n workflow
+- Includes support for multiple HTTP verbs and custom actions
 
-These are the basic steps for working with the starter. For detailed guidance on creating and publishing nodes, refer to the [documentation](https://docs.n8n.io/integrations/creating-nodes/).
+---
 
-1. [Generate a new repository](https://github.com/n8n-io/n8n-nodes-starter/generate) from this template repository.
-2. Clone your new repo:
+## 📦 Installation
+
+To install this node in your local or self-hosted n8n instance:
+
+```bash
+npm install n8n-nodes-understandtechchat
+```
+
+If you’re using Docker:
+
+```Dockerfile
+RUN npm install n8n-nodes-understandtechchat
+```
+
+Then restart your n8n instance.
+
+---
+
+## 📋 Prerequisites
+
+You’ll need:
+
+- [Git](https://git-scm.com/downloads)
+- Node.js (v20 or later) and [pnpm](https://pnpm.io/)
+- [n8n installed](https://docs.n8n.io/)
+  
+Install globally:
+```bash
+npm install -g n8n
+```
+
+---
+
+## 🛠 Development Setup
+
+1. Clone this repo:
+   ```bash
+   git clone https://github.com/LavaxMaster/n8n-nodes-starter.git
+   cd n8n-nodes-starter
    ```
-   git clone https://github.com/<your organization>/<your-repo-name>.git
+
+2. Install dependencies:
+   ```bash
+   npm install
    ```
-3. Run `npm i` to install dependencies.
-4. Open the project in your editor.
-5. Browse the examples in `/nodes` and `/credentials`. Modify the examples, or replace them with your own nodes.
-6. Update the `package.json` to match your details.
-7. Run `npm lint` to check for errors or `npm lintfix` to automatically fix errors when possible.
-8. Test your node locally. Refer to [Run your node locally](https://docs.n8n.io/integrations/creating-nodes/test/run-node-locally/) for guidance.
-9. Replace this README with documentation for your node. Use the [README_TEMPLATE](README_TEMPLATE.md) to get started.
-10. Update the LICENSE file to use your details.
-11. [Publish](https://docs.npmjs.com/packages-and-modules/contributing-packages-to-the-registry) your package to npm.
 
-## More information
+3. Build and lint:
+   ```bash
+   npm run build
+   npm run lint
+   ```
 
-Refer to our [documentation on creating nodes](https://docs.n8n.io/integrations/creating-nodes/) for detailed information on building your own nodes.
+4. Customize your logic inside:
+   - `nodes/UnderstandTechChat/UnderstandTechChat.node.ts`
+   - `credentials/UnderstandTechApiCredentials.credentials.ts`
 
-## License
+---
 
-[MIT](https://github.com/n8n-io/n8n-nodes-starter/blob/master/LICENSE.md)
+## 🧪 Testing
+
+You can run and test the node locally within n8n using:
+```bash
+n8n
+```
+
+Then, open the UI and test the `UnderstandTechChat` node in your workflow.
+
+Refer to the [official guide](https://docs.n8n.io/integrations/creating-nodes/test/run-node-locally/) for running custom nodes locally.
+
+---
+
+## 🌍 Publishing to npm
+
+When you're ready to share:
+
+1. Update `package.json` fields:
+   - `name`
+   - `version`
+   - `description`
+   - `repository`
+
+2. Build and lint:
+   ```bash
+   npm run build
+   npm run lint
+   ```
+
+3. Publish:
+   ```bash
+   npm publish --access public
+   ```
+
+---
+
+## 📄 License
+
+[MIT License](LICENSE.md)
