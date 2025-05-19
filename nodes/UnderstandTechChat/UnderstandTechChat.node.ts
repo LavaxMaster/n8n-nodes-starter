@@ -18,7 +18,6 @@ export class UnderstandTechChat implements INodeType {
 		description: 'Chat with a model in UnderstandTech',
 		defaults: {
 			name: 'Understand Tech Chat',
-			color: '#772953',
 		},
 		inputs: [NodeConnectionType.Main],
 		outputs: [NodeConnectionType.Main],
@@ -34,8 +33,15 @@ export class UnderstandTechChat implements INodeType {
 				name: 'baseUrl',
 				type: 'string',
 				default: 'https://developer.understand.tech',
-				typeOptions: { validation: [ { regex: '^(https?://).+', error: 'Must be a valid URL starting with http:// or https://' } ] },
 				required: true,
+				typeOptions: {
+					validation: [
+						{
+							regex: '^(https?://).+',
+							error: 'Must be a valid URL starting with http:// or https://',
+						},
+					],
+				},
 				description: 'The base URL of the UnderstandTech API',
 			},
 			{
@@ -58,6 +64,7 @@ export class UnderstandTechChat implements INodeType {
 				displayName: 'Secret',
 				name: 'secret',
 				type: 'string',
+				typeOptions: { password: true },
 				default: '',
 				description: 'Your secret for the chat session (optional)',
 			},
@@ -66,8 +73,8 @@ export class UnderstandTechChat implements INodeType {
 				name: 'language',
 				type: 'options',
 				options: [
-					{ name: 'en-US', value: 'en-US' },
-					{ name: 'fr-FR', value: 'fr-FR' },
+					{ name: 'En-US', value: 'en-US' },
+					{ name: 'Fr-FR', value: 'fr-FR' },
 				],
 				default: 'en-US',
 				description: 'Select the language header (Accept-Language)',
@@ -77,10 +84,10 @@ export class UnderstandTechChat implements INodeType {
 				name: 'historyPeriod',
 				type: 'options',
 				options: [
-				   { name: 'Today', value: 'Today' },
-                   { name: 'Yesterday', value: 'Yesterday' },
-                   { name: 'Last Week', value: 'Last Week' },
-                   { name: 'Last 30 Days', value: 'Last 30 Days' },
+					{ name: 'Today', value: 'Today' },
+					{ name: 'Yesterday', value: 'Yesterday' },
+					{ name: 'Last Week', value: 'Last Week' },
+					{ name: 'Last 30 Days', value: 'Last 30 Days' },
 				],
 				default: 'Today',
 				description: 'Timeframe of chat history to include',
@@ -107,14 +114,12 @@ export class UnderstandTechChat implements INodeType {
 				throw new NodeOperationError(this.getNode(), 'API Key is required');
 			}
 
-			// Validate baseUrl is a URL
 			try {
 				new URL(baseUrl);
 			} catch {
 				throw new NodeOperationError(this.getNode(), 'Base URL must be a valid URL');
 			}
 
-			// Build payload
 			const payload = {
 				history: [
 					{
@@ -140,7 +145,6 @@ export class UnderstandTechChat implements INodeType {
 				json: true,
 			});
 
-			// Basic response validation
 			if (
 				typeof response !== 'object' ||
 				!Array.isArray((response as any).reponses)
@@ -150,7 +154,6 @@ export class UnderstandTechChat implements INodeType {
 					'Unexpected response structure: missing `reponses` array',
 				);
 			}
-
 
 			returnData.push({ json: response });
 		}
