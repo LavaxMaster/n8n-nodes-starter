@@ -77,8 +77,10 @@ export class UnderstandTechChat implements INodeType {
 				name: 'historyPeriod',
 				type: 'options',
 				options: [
-					{ name: 'Today', value: 'Today' },
-					{ name: 'All', value: 'All' },
+				   { name: 'Today', value: 'Today' },
+                   { name: 'Yesterday', value: 'Yesterday' },
+                   { name: 'Last Week', value: 'Last Week' },
+                   { name: 'Last 30 Days', value: 'Last 30 Days' },
 				],
 				default: 'Today',
 				description: 'Timeframe of chat history to include',
