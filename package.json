@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-understandtechchat",
-  "version": "0.1.1",
+  "version": "0.1.4",
   "description": "…",
   "keywords": [
     "n8n-community-node-package"
@@ -24,12 +24,10 @@
   "n8n": {
     "n8nNodesApiVersion": 1,
     "credentials": [
-      "dist/credentials/UnderstandTechApiCredentialsApi.credentials.js",
-      "dist/credentials/HttpBinApi.credentials.js"
+      "dist/credentials/UnderstandTechApiCredentialsApi.credentials.js"
     ],
     "nodes": [
-      "dist/nodes/UnderstandTechChat/UnderstandTechChat.node.js",
-      "dist/nodes/HttpBin/HttpBin.node.js"
+      "dist/nodes/UnderstandTechChat/UnderstandTechChat.node.js"
     ]
   },
   "scripts": {
