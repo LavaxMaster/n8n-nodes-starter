@@ -1,4 +1,9 @@
-import type { ICredentialType, INodeProperties } from 'n8n-workflow';
+import type { 
+    ICredentialType, 
+    INodeProperties,
+    ICredentialTestRequest,
+    IAuthenticateGeneric,
+} from 'n8n-workflow';
 
 export class UnderstandTechApiCredentialsApi implements ICredentialType {
     name = 'understandTechApi';
@@ -27,14 +32,19 @@ export class UnderstandTechApiCredentialsApi implements ICredentialType {
         },
     ];
 
-    test = {
-        request: {
-            method: 'GET' as const,
-            url: '={{ $credentials.baseUrl + "/api/v1/account/verify-apikey" }}',
+    authenticate: IAuthenticateGeneric = {
+        type: 'generic',
+        properties: {
             headers: {
-                Authorization: '={{ "Bearer " + $credentials.apiKey }}',
-                Accept: 'application/json',
+                Authorization: '=Bearer {{$credentials.apiKey}}',
             },
+        },
+    };
+
+    test: ICredentialTestRequest = {
+        request: {
+            method: 'GET',
+            url: '={{$credentials.baseUrl}}/api/v1/account/verify-apikey',
         },
     };
 }
